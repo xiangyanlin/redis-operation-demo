@@ -36,12 +36,7 @@ public class RedisUtilTest {
 
     /**
      * 设置缓存过期时间
-     *
-     * @Title testExpire
-     * @author 于国帅
-     * @date 2019年3月7日 上午8:35:24
      * @throws Exception
-     *             void
      */
     @Test
     public void testExpire() throws Exception {
