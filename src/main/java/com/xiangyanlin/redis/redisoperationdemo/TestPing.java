@@ -20,4 +20,6 @@ public class TestPing {
         String response = jedis.ping();
         System.out.println(response); // PONG
     }
+
+
 }
