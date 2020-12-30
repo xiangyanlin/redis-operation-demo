@@ -1,4 +1,4 @@
-package juc;
+package com.xiangyanlin.redis.redisoperationdemo.juc;
 
 /**
  * @author XiangYanLin
