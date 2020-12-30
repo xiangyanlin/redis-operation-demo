@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>after the theatre restructure</title>
-    <button th:onclick="|javascript:statement()|">click here</button>
+
 </head>
 <body>
-
+<button th:onclick="|javascript:statement()|">click here</button>
 </body>
 <script type="text/javascript" src="/invoices.js"></script>
 <script type="text/javascript" src="/plays.js"></script>
@@ -16,11 +16,11 @@
 
         let result = `Statement for ${invoice.customer}\n`;
         for (let perf of invoice.performances) {
-            result += ` ${playFor(perf).name}: ${usd(amountFor(perf) )} (${perf.audience} seats)\n`;
+            result += ` ${playFor(perf).name}: ${usd(amountFor(perf))} (${perf.audience} seats)\n`;
         }
         result += `Amount owed is ${usd(totalAmount())}\n`;
         result += `You earned ${totalVolumeCredits()} credits\n`;
-       // return result;
+        // return result;
         console.log(result)
     }
 
@@ -42,8 +42,10 @@
 
     function usd(aNumber) {
         return new Intl.NumberFormat("en-US",
-            { style: "currency", currency: "USD",
-                minimumFractionDigits: 2 }).format(aNumber / 100);
+            {
+                style: "currency", currency: "USD",
+                minimumFractionDigits: 2
+            }).format(aNumber / 100);
     }
 
     function playFor(aPerformance) {
@@ -59,7 +61,7 @@
     }
 
     //step3:rename the parameter
-    function amountFor(aPerformance){
+    function amountFor(aPerformance) {
         //step2: rename the result
         let result = 0;
         switch (playFor(aPerformance).type) {
@@ -79,7 +81,7 @@
             default:
                 throw new Error(`unknown type: ${play.type}`);
         }
-                return result;
+        return result;
     }
 
 </script>
