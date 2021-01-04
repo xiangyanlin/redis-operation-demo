@@ -11,6 +11,18 @@ public class VolatitleDemo {
         testVisibility();
     }
 
+    public static void testAtomicity(){
+        TestVolatitleData data=new TestVolatitleData();
+        for (int i = 0; i < 20; i++) {
+            new Thread(() -> {
+                // 里面
+                for (int j = 0; j < 1000; j++) {
+                    data.increment();
+                }
+            }, String.valueOf(i)).start();
+        }
+    }
+
     /**
      * 可见性验证
      * data.numner 加volatitle前后的结果

@@ -11,5 +11,10 @@ public class TestVolatitleData {
         this.number=60;
     }
 
-
+    /**
+     *自增
+     */
+    public void increment() {
+        number ++;
+    }
 }
