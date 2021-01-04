@@ -8,9 +8,14 @@ public class VolatitleDemo {
 
 
     public static void main(String[] args) {
-        testVisibility();
+        //testVisibility();
+        testAtomicity();
     }
 
+    /**
+     * 测试原子性
+     * 最后输出最后不是20000，没有最终一致性
+     */
     public static void testAtomicity(){
         TestVolatitleData data=new TestVolatitleData();
         for (int i = 0; i < 20; i++) {
@@ -18,9 +23,23 @@ public class VolatitleDemo {
                 // 里面
                 for (int j = 0; j < 1000; j++) {
                     data.increment();
+                    data.addAtomic();
                 }
             }, String.valueOf(i)).start();
         }
+        // 需要等待上面20个线程都计算完成后，在用main线程取得最终的结果值
+        // 这里判断线程数是否大于2，为什么是2？因为默认是有两个线程的，一个main线程，一个gc线程
+        while(Thread.activeCount() > 2) {
+            // yield表示不执行
+            Thread.yield();
+        }
+
+        // 查看最终的值
+        // 假设volatile保证原子性，那么输出的值应该为：  20 * 1000 = 20000
+        System.out.println(Thread.currentThread().getName()
+                + "\t finally number value: " + data.number);
+        System.out.println(Thread.currentThread().getName()
+                + "\t finally atomicNumber value: " + data.atomicInteger);
     }
 
     /**
