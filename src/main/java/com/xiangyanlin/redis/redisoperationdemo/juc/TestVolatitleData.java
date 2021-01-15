@@ -7,7 +7,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @date 2020/12/28
  */
 public class TestVolatitleData {
-    volatile int number=0;
+      volatile  int number=0;
 
     public void addTo60(){
         this.number=60;
@@ -16,7 +16,7 @@ public class TestVolatitleData {
     /**
      *自增
      */
-    public synchronized void increment() {
+    public  void increment() {
         number ++;
     }
 
@@ -26,5 +26,6 @@ public class TestVolatitleData {
         // 相当于 atomicInter ++
         //自旋锁
         atomicInteger.getAndIncrement();
+
     }
 }

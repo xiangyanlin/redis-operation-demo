@@ -8,8 +8,8 @@ public class VolatitleDemo {
 
 
     public static void main(String[] args) {
-        //testVisibility();
         testAtomicity();
+
     }
 
     /**
