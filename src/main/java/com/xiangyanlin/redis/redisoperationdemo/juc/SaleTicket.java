@@ -25,5 +25,12 @@ public class SaleTicket {
             ticket.sale();
         }
         },"C").start();
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+
+            }
+        });
     }
 }
