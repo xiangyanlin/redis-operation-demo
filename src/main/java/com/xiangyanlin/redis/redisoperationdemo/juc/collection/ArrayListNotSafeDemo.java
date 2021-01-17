@@ -9,6 +9,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
  */
 public class ArrayListNotSafeDemo {
     public static void main(String[] args) {
+
 //        List<String> list= Arrays.asList("1","2","3");
 //        list.forEach(System.out::println);
       //  List<String> list=new ArrayList<>(10);
