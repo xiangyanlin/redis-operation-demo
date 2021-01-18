@@ -1,5 +1,7 @@
 package com.xiangyanlin.redis.redisoperationdemo.juc.collection;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.CopyOnWriteArrayList;
 
@@ -9,6 +11,8 @@ import java.util.concurrent.CopyOnWriteArrayList;
  */
 public class ArrayListNotSafeDemo {
     public static void main(String[] args) {
+
+        Map<String,Object> map=new HashMap<>(16);
 
 //        List<String> list= Arrays.asList("1","2","3");
 //        list.forEach(System.out::println);
@@ -23,6 +27,7 @@ public class ArrayListNotSafeDemo {
                 System.out.println(list);
             },String.valueOf(i)).start();
         }
+        list.get(0);
 
 
 

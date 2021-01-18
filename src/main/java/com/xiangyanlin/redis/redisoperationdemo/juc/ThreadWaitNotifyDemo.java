@@ -2,6 +2,8 @@ package com.xiangyanlin.redis.redisoperationdemo.juc;
 
 import com.xiangyanlin.redis.redisoperationdemo.juc.model.Aircondition;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * @author XiangYanLin
  * @date 2021/1/16
